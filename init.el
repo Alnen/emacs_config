@@ -4,7 +4,28 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
+(package-initialize)
+
+(defun ensure-package-installed (package)
+     (if (package-installed-p package)
+       nil
+       (package-install package)))
+
+(defun ensure-packages-installed (packages)
+  (mapcar 'ensure-package-installed packages))
+
+;; make sure to have downloaded archive description.
+;; Or use package-archive-contents as suggested by Nicolas Dudebout
+(or (file-exists-p package-user-dir)
+    (package-refresh-contents))
+
+(setq required_packages (list))
+(load "~/.emacs.d/common_packages.el")
+
+(ensure-packages-installed required_packages)
+
+;; activate installed packages
+(package-initialize)
 (tool-bar-mode -1) 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (add-to-list 'load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")

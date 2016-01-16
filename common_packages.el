@@ -1,0 +1,46 @@
+(mapcar 
+    (lambda (package)
+        (add-to-list 'required_packages package))
+    '(  async
+        auto-complete
+        avy
+        cmake-ide
+        dash
+        epl
+        evil
+        evil-easymotion
+        evil-magit
+        evil-tutor
+        flx
+        flx-ido
+        flycheck
+        fsharp-mode
+        git-commit
+        goto-chg
+        helm
+        helm-core
+        helm-flycheck
+        helm-ls-git
+        helm-projectile
+        let-alist
+        levenshtein
+        llvm-mode
+        magit
+        magit-popup
+        markdown-mode
+        markdown-toc
+        pkg-info
+        popup
+        pos-tip
+        powerline
+        pretty-mode
+        projectile
+        rich-minority
+        rtags
+        s
+        seq
+        smart-mode-line
+        smart-mode-line-powerline-theme
+        solarized-theme
+        undo-tree
+        with-editor))
