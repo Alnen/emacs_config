@@ -26,7 +26,11 @@
 
 ;; activate installed packages
 (package-initialize)
-(tool-bar-mode -1) 
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(require 'neotree) 
+(global-set-key [f8] 'neotree-toggle)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (add-to-list 'load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (load-theme 'solarized-dark t)
@@ -53,14 +57,14 @@
 (setf rm-blacklist "")
 (sml/setup)
 (set-frame-font "Source Code Pro" nil t)
-(set-face-attribute 'default nil :height 100)
+(set-face-attribute 'default nil :height 140)
 (require 'pretty-mode)
 ; if you want to set it globally
 (global-pretty-mode t)
 ; if you want to set it only for a specific mode
 (add-hook 'my-pretty-language-hook 'turn-on-pretty-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-; (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 (require 'evil-magit)
 (evilem-default-keybindings "SPC")
 (require 'fsharp-mode)
@@ -80,10 +84,20 @@
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
 (require 'rtags) ;; optional, must have rtags installed
 (cmake-ide-setup)
+(setq neo-smart-open t)
+(setq projectile-switch-project-action 'neotree-projectile-action)
+(add-hook 'neotree-mode-hook (lambda () (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter) (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter) (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide) (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+(require 'popwin)
+(popwin-mode 1)
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
 
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
-
-
+(add-hook 'python-mode-hook 'jedi:setup)
+(when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize))
+(company-quickhelp-mode 1)
 ; platform specific
 (setq cmake-ide-clang-flags-c '(
  "/usr/include/c++/5"
@@ -105,3 +119,17 @@
  "/usr/include/x86_64-linux-gnu"
  "/usr/include"
  ))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (cmake-ide evil-easymotion evil-magit evil-tutor flx-ido fsharp-mode goto-chg helm-flycheck helm-ls-git helm-projectile levenshtein llvm-mode magit magit-popup markdown-toc popup pos-tip pretty-mode projectile rtags s smart-mode-line-powerline-theme solarized-theme undo-tree with-editor))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

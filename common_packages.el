@@ -5,12 +5,16 @@
         auto-complete
         avy
         cmake-ide
-        dash
+	company-jedi
+        company-quickhelp
+	dash
         epl
         evil
         evil-easymotion
+	evil-ediff
         evil-magit
         evil-tutor
+	exec-path-from-shell	
         flx
         flx-ido
         flycheck
@@ -22,15 +26,19 @@
         helm-flycheck
         helm-ls-git
         helm-projectile
+        import-popwin
         let-alist
         levenshtein
         llvm-mode
         magit
         magit-popup
         markdown-mode
+	markdown-preview-mode
         markdown-toc
+        neotree
         pkg-info
         popup
+        popwin
         pos-tip
         powerline
         pretty-mode
