@@ -5,19 +5,21 @@
         auto-complete
         avy
         cmake-ide
-	company-jedi
+        company-irony
+        company-jedi
         company-quickhelp
-	dash
+        dash
         epl
         evil
         evil-easymotion
-	evil-ediff
+        ;evil-ediff
         evil-magit
         evil-tutor
-	exec-path-from-shell	
+        exec-path-from-shell	
         flx
         flx-ido
         flycheck
+        flycheck-irony
         fsharp-mode
         git-commit
         goto-chg
@@ -27,13 +29,14 @@
         helm-ls-git
         helm-projectile
         import-popwin
+        irony
         let-alist
         levenshtein
         llvm-mode
         magit
         magit-popup
         markdown-mode
-	markdown-preview-mode
+        markdown-preview-mode
         markdown-toc
         neotree
         pkg-info
@@ -43,6 +46,7 @@
         powerline
         pretty-mode
         projectile
+        py-import-check
         rich-minority
         rtags
         s

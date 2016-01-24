@@ -1,0 +1,23 @@
+rtags 
+
+cd rtags
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .
+make
+sudo make install
+
+Bear
+
+cmake $BEAR_SOURCE_DIR
+make all
+make install # to install
+make check   # to run tests
+make package # to make packages
+
+cscope
+
+sudo apt-get install cscope / brew install cscope
+
+====Emacs
+
+M-x jedi:install-server RET
+M-x irony-install-server RET

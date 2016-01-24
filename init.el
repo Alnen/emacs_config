@@ -30,7 +30,6 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (require 'neotree) 
-(global-set-key [f8] 'neotree-toggle)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (add-to-list 'load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (load-theme 'solarized-dark t)
@@ -56,11 +55,13 @@
 (rich-minority-mode 1)
 (setf rm-blacklist "")
 (sml/setup)
+(when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize))
 (set-frame-font "Source Code Pro" nil t)
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 100)
 (require 'pretty-mode)
 ; if you want to set it globally
-(global-pretty-mode t)
+; (global-pretty-mode t)
 ; if you want to set it only for a specific mode
 (add-hook 'my-pretty-language-hook 'turn-on-pretty-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -95,9 +96,34 @@
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 
 (add-hook 'python-mode-hook 'jedi:setup)
-(when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize))
 (company-quickhelp-mode 1)
+(add-hook 'c++-mode-hook 'rtags-enable-standard-keybindings)
+(add-hook 'c-mode-hook 'rtags-enable-standard-keybindings)
+(add-hook 'c++-mode-hook 'irony-mode) 
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+;; replace the `completion-at-point' and `complete-symbol' bindings in
+;; irony-mode's buffers by irony-mode's function
+(defun my-irony-mode-hook ()
+  (define-key irony-mode-map [remap completion-at-point]
+    'irony-completion-at-point-async)
+  (define-key irony-mode-map [remap complete-symbol]
+    'irony-completion-at-point-async))
+(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+(global-set-key [f8] 'neotree-toggle)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+
+
+
 ; platform specific
 (setq cmake-ide-clang-flags-c '(
  "/usr/include/c++/5"
