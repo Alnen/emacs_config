@@ -20,4 +20,4 @@ sudo apt-get install cscope / brew install cscope
 ====Emacs
 
 M-x jedi:install-server RET
-M-x irony-install-server RET
+M-x irony-install-server RET  #(for mac add -DCMAKE_PREFIX_PATH\=<path to llvm from brew> after came)

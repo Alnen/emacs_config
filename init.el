@@ -29,7 +29,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(require 'neotree) 
+; (require 'neotree) 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (add-to-list 'load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (load-theme 'solarized-dark t)
@@ -85,9 +85,13 @@
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
 (require 'rtags) ;; optional, must have rtags installed
 (cmake-ide-setup)
-(setq neo-smart-open t)
-(setq projectile-switch-project-action 'neotree-projectile-action)
-(add-hook 'neotree-mode-hook (lambda () (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter) (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter) (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide) (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+; (setq neo-smart-open t)
+; (setq projectile-switch-project-action 'neotree-projectile-action)
+; (add-hook 'neotree-mode-hook (lambda ()
+;   (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+;   (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+;   (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+;   (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 (require 'popwin)
 (popwin-mode 1)
 (defun my/python-mode-hook ()
@@ -118,10 +122,24 @@
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
-(global-set-key [f8] 'neotree-toggle)
+; (global-set-key [f8] 'neotree-toggle)
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
+(defun my-c-mode-common-hook ()
+ ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
+ (c-set-offset 'substatement-open 0)
+ ;; other customizations can go here
 
+ (setq c++-tab-always-indent t)
+ (setq c-basic-offset 4)                  ;; Default is 2
+ (setq c-indent-level 4)                  ;; Default is 2
+
+ (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+ (setq tab-width 4)
+ (setq indent-tabs-mode t)  ; use spaces only if nil
+ )
+
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 
 ; platform specific
