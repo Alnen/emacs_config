@@ -63,6 +63,10 @@
 ; if you want to set it globally
 ; (global-pretty-mode t)
 ; if you want to set it only for a specific mode
+(setq-default
+ company-idle-delay 0.1
+ company-minimum-prefix-length 1
+ )
 (add-hook 'my-pretty-language-hook 'turn-on-pretty-mode)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'after-init-hook 'global-company-mode)
