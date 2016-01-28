@@ -13,9 +13,9 @@ make install # to install
 make check   # to run tests
 make package # to make packages
 
-cscope
-
-sudo apt-get install cscope / brew install cscope
+silver sercher
+apt-get install silversearcher-ag
+brew install the_silver_searcher
 
 ====Emacs
 

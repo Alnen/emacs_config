@@ -32,7 +32,8 @@
 ; (require 'neotree) 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (add-to-list 'load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
-(load-theme 'solarized-dark t)
+;(load-theme 'solarized-dark t)
+(load-theme 'monokai t)
 (require 'evil)
 (evil-mode 1)
 (global-linum-mode t)
@@ -89,13 +90,21 @@
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
 (require 'rtags) ;; optional, must have rtags installed
 (cmake-ide-setup)
-; (setq neo-smart-open t)
-; (setq projectile-switch-project-action 'neotree-projectile-action)
-; (add-hook 'neotree-mode-hook (lambda ()
-;   (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-;   (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
-;   (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-;   (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+(setq neo-smart-open t)
+;(setq projectile-switch-project-action 'neotree-projectile-action)
+;(add-hook 'neotree-mode-hook (lambda ()
+;  (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+;  (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+;  (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+;  (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+;(setq-default neo-persist-show t)
+;    (when neo-persist-show
+;      (add-hook 'popwin:before-popup-hook
+;                (lambda () (setq neo-persist-show nil)))
+;      (add-hook 'popwin:after-popup-hook
+;                (lambda () (setq neo-persist-show t))))
+
+
 (require 'popwin)
 (popwin-mode 1)
 (defun my/python-mode-hook ()
@@ -126,7 +135,7 @@
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
-; (global-set-key [f8] 'neotree-toggle)
+;(global-set-key [f8] 'neotree-toggle)
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 (defun my-c-mode-common-hook ()
@@ -144,6 +153,7 @@
  )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 
 ; platform specific

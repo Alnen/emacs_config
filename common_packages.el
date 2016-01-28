@@ -1,7 +1,8 @@
 (mapcar 
     (lambda (package)
         (add-to-list 'required_packages package))
-    '(  async
+    '(  ag
+        async
         auto-complete
         avy
         cmake-ide
@@ -13,6 +14,7 @@
         evil
         evil-easymotion
         ;evil-ediff
+	evil-escape
         evil-magit
         evil-tutor
         exec-path-from-shell	
@@ -24,6 +26,7 @@
         git-commit
         goto-chg
         helm
+	helm-ag
         helm-core
         helm-flycheck
         helm-ls-git
@@ -38,6 +41,7 @@
         markdown-mode
         markdown-preview-mode
         markdown-toc
+	monokai-theme
         neotree
         pkg-info
         popup
@@ -46,6 +50,7 @@
         powerline
         pretty-mode
         projectile
+	puml-mode
         py-import-check
         rich-minority
         rtags
