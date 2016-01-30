@@ -39,6 +39,7 @@
 (global-linum-mode t)
 (projectile-global-mode)
 (require 'flx-ido)
+(require 'use-package)
 (ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
@@ -154,7 +155,15 @@
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+; (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+(use-package smartparens-config
+    :ensure smartparens
+    :config
+    (progn
+      (show-smartparens-global-mode t)))
 
+(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+(add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
 
 ; platform specific
 (setq cmake-ide-clang-flags-c '(

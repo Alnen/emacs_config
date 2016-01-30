@@ -4,3 +4,6 @@
 [submodule "Bear"]
 	path = Bear
 	url = https://github.com/rizsotto/Bear
+[submodule "FsAutoComplete"]
+	path = FsAutoComplete
+	url = https://github.com/fsharp/FsAutoComplete.git

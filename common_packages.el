@@ -17,6 +17,7 @@
 	evil-escape
         evil-magit
         evil-tutor
+        evil-smartparens
         exec-path-from-shell	
         flx
         flx-ido
@@ -58,6 +59,8 @@
         seq
         smart-mode-line
         smart-mode-line-powerline-theme
+        smartparens
         solarized-theme
         undo-tree
+        use-package
         with-editor))
