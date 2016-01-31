@@ -7,3 +7,6 @@
 [submodule "FsAutoComplete"]
 	path = FsAutoComplete
 	url = https://github.com/fsharp/FsAutoComplete.git
+[submodule "Snippets/yasnippet-snippets"]
+	path = Snippets/yasnippet-snippets
+	url = https://github.com/AndreaCrotti/yasnippet-snippets

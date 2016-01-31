@@ -61,6 +61,8 @@
         smart-mode-line-powerline-theme
         smartparens
         solarized-theme
+        symon
         undo-tree
         use-package
-        with-editor))
+        with-editor
+        yasnippet))

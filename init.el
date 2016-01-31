@@ -165,6 +165,12 @@
 (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
 (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
 
+(require 'symon)
+; (symon-mode)
+(require 'yasnippet)
+(add-to-list 'yas-snippet-dirs "~/.emacs.d/Snippets/yasnippet-snippets")
+(yas-global-mode 1)
+
 ; platform specific
 (setq cmake-ide-clang-flags-c '(
  "/usr/include/c++/5"
