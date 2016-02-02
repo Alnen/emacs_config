@@ -16,6 +16,7 @@
         ;evil-ediff
 	evil-escape
         evil-magit
+	evil-org
         evil-tutor
         evil-smartparens
         exec-path-from-shell	
