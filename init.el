@@ -75,6 +75,7 @@
 (require 'evil-magit)
 (evilem-default-keybindings "SPC")
 (require 'fsharp-mode)
+(require 'glsl-mode)
 (setq evil-motion-state-modes (append evil-emacs-state-modes evil-motion-state-modes))
 (setq evil-emacs-state-modes nil)
 (autoload 'markdown-mode "markdown-mode"

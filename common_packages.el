@@ -26,6 +26,7 @@
         flycheck-irony
         fsharp-mode
         git-commit
+        glsl-mode
         goto-chg
         helm
 	helm-ag
@@ -44,6 +45,7 @@
         markdown-preview-mode
         markdown-toc
 	monokai-theme
+        multishell
         neotree
         pkg-info
         popup
