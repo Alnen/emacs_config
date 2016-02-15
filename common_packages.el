@@ -10,16 +10,17 @@
         company-jedi
         company-quickhelp
         dash
+        disaster
         epl
         evil
         evil-easymotion
         ;evil-ediff
-	evil-escape
+        evil-escape
         evil-magit
-	evil-org
+        evil-org
         evil-tutor
         evil-smartparens
-        exec-path-from-shell	
+        exec-path-from-shell
         flx
         flx-ido
         flycheck
@@ -29,7 +30,7 @@
         glsl-mode
         goto-chg
         helm
-	helm-ag
+        helm-ag
         helm-core
         helm-flycheck
         helm-ls-git
@@ -44,7 +45,7 @@
         markdown-mode
         markdown-preview-mode
         markdown-toc
-	monokai-theme
+        monokai-theme
         multishell
         neotree
         pkg-info
@@ -54,7 +55,7 @@
         powerline
         pretty-mode
         projectile
-	puml-mode
+        puml-mode
         py-import-check
         rich-minority
         rtags

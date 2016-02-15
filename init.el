@@ -32,8 +32,8 @@
 ; (require 'neotree) 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
 (add-to-list 'load-path "~/.emacs.d/elpa/solarized-theme-20151211.535")
-;(load-theme 'solarized-dark t)
-(load-theme 'monokai t)
+(load-theme 'solarized-dark t)
+;(load-theme 'monokai t)
 (require 'evil)
 (evil-mode 1)
 (global-linum-mode t)
@@ -174,7 +174,9 @@
 
 
 (setq-default indent-tabs-mode nil)
-
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil))
 
 ; platform specific
 (setq cmake-ide-clang-flags-c '(
